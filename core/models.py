@@ -19,7 +19,7 @@ class Salary(models.Model):
         super(Salary, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.employee_name} - {self.net_salary}'
+        return f'Employee name: {self.employee_name}, net salary: {self.net_salary}'
 
 # after writing , or modifying models we make migrations and then migrate
 # python manage.py makemigrations
