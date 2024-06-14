@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9&*^8_glqpk%h%$ef(71rk=8(r3_)3z=cc58)+c*y+@u^#q*50'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -60,8 +60,13 @@ SWAGGER_SETTINGS = {
         }
     }
 }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=4),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+}
+
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Tutorail Api',
+    'TITLE': 'Tutorial Api',
     'DESCRIPTION': 'django-rest tutorial  Api',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
